@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    
+
+
+<head>
+    <title>Donation</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/donate.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    
+    <script>
+    
+    function formChooser(form) {
+        document.getElementById(form).style.display='block';
+    }
+    function formHider(){
+        document.getElementById('textbookForm').style.display='none';
+        document.getElementById('suppliesForm').style.display='none';
+        document.getElementById('devicesForm').style.display='none';
+    }
+    function formPicker(form) {
+        formHider();
+        formChooser(form);
+    }
+    </script>
+    <meta charset="utf-8">
+</head>
+<h1>Donation Form</h1>
+<body>
+    <div class="container">
+        <div class="donate-html">
+            <div class="donate-form">
+                <div class="information-htm">
+                    <button type="button" class="btn btn-primary" onclick="formPicker('textbookForm')">Textbook</button>
+                    <button type="button" class="btn btn-primary" onclick="formPicker('suppliesForm')">Supplies</button>
+                    <button type="button" class="btn btn-primary" onclick="formPicker('devicesForm')">Devices</button>
+                    <br><br>
+                    <div id='forms'>
+                        <form class='form-group' id ='textbookForm' style="display:none">
+                            <div class ="group">
+                                <label for="isbn">ISBN:</label>
+                                <input id="isbn" type="text" class="input"><br><br>
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Submit">
+                            </div>
+                        </form>
+                        <form id ='suppliesForm' style="display:none">
+                            <div class ="group">
+                                <label for="supplyName">Supply Name:</label>
+                                <input id="supplyName" type="text" class="input"><br><br>
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Submit">
+                            </div>
+                        </form>
+                        <form id ='devicesForm' style="display:none">
+                            <div class ="group">
+                                <label for="deviceName">Device Name:</label>
+                                <input id="deviceName" type="text" class="input"><br><br>
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

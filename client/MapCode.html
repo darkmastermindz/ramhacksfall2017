@@ -1,0 +1,54 @@
+<html>
+  <head>
+    < This stylesheet contains specific styles for displaying the map
+         on this page. Replace it with your own styles as described in the
+         documentation:
+         https://developers.google.com/maps/documentation/javascript/tutorial -->
+  <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+ </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+    
+    
+      function initMap() {
+      
+    var address = array(3);
+    address[1] = "907 Floyd Avenue"
+    address[2] = "901 Park Avenue"
+    address[3] = "601 West Main Street"
+    
+        var Richmond = {lat: 37.54, lng: 77.43};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: Richmond,
+          zoom: 7
+        });
+
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          map: map
+        });
+
+        // Set destination, origin and travel mode.
+        var request = {
+          destination: address[m],
+          origin: Richmond,
+          travelMode: 'DRIVING'
+        };
+
+        // Pass the directions request to the directions service.
+        var directionsService = new google.maps.DirectionsService();
+        directionsService.route(request, function(response, status) {
+          if (status == 'OK') {
+            // Display the route on the map.
+            directionsDisplay.setDirections(response);
+          }
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+        async defer></script>
+  </body>
+</html>
